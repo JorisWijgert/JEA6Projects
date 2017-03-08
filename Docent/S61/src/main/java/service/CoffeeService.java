@@ -7,9 +7,12 @@ package service;
 
 import dao.CoffeeDAO;
 import domain.Coffee;
+
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import util.CoffeeEvent;
 
 /**
  *
@@ -17,11 +20,16 @@ import javax.inject.Inject;
  */
 @Stateless
 public class CoffeeService {
+    
+    @Inject
+    Event<CoffeeEvent> ev;
 
     @Inject
     CoffeeDAO cd;
 
     public List<Coffee> allCoffees() {
+        CoffeeEvent coffeeEvent = new CoffeeEvent();
+        ev.fire(coffeeEvent);
         return cd.allCoffees();
     }
 
