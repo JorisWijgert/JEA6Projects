@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JSF_Kwetter/JSF_Kwetter.iml" filepath="$PROJECT_DIR$/JSF_Kwetter/JSF_Kwetter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Kwetter.iml" filepath="$PROJECT_DIR$/Kwetter.iml" />
     </modules>
   </component>
