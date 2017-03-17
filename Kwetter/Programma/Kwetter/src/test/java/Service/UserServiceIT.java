@@ -1,6 +1,5 @@
 package Service;
 
-import DAO.DAOManager;
 import DAO.RelationDAO;
 import DAO.UserDAO;
 import Domain.Group;
@@ -12,8 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.inject.Inject;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Joris on 9-3-2017.

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<testsuite tests="8" failures="0" name="Domain.KweetTest" time="0.005" errors="0" skipped="0">
-=======
-<testsuite tests="8" failures="0" name="Domain.KweetTest" time="0.002" errors="0" skipped="0">
->>>>>>> 51c04db2f4fd4590706e21e716f98118c279baf0
+<testsuite tests="8" failures="0" name="domain.KweetTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\tools\jdk1.8.0_111\jre\bin"/>
@@ -67,19 +63,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Domain.KweetTest" name="addLiker" time="0"/>
-  <testcase classname="Domain.KweetTest" name="addExistingLikerException" time="0"/>
-  <testcase classname="Domain.KweetTest" name="setMessage" time="0"/>
-  <testcase classname="Domain.KweetTest" name="getDate" time="0"/>
-<<<<<<< HEAD
-  <testcase classname="Domain.KweetTest" name="getUser" time="0.001"/>
-  <testcase classname="Domain.KweetTest" name="getId" time="0.003"/>
-  <testcase classname="Domain.KweetTest" name="getLiker" time="0.001"/>
-  <testcase classname="Domain.KweetTest" name="getMessage" time="0"/>
-=======
-  <testcase classname="Domain.KweetTest" name="getUser" time="0"/>
-  <testcase classname="Domain.KweetTest" name="getId" time="0.001"/>
-  <testcase classname="Domain.KweetTest" name="getLiker" time="0"/>
-  <testcase classname="Domain.KweetTest" name="getMessage" time="0.001"/>
->>>>>>> 51c04db2f4fd4590706e21e716f98118c279baf0
+  <testcase classname="domain.KweetTest" name="addLiker" time="0"/>
+  <testcase classname="domain.KweetTest" name="addExistingLikerException" time="0"/>
+  <testcase classname="domain.KweetTest" name="setMessage" time="0"/>
+  <testcase classname="domain.KweetTest" name="getDate" time="0"/>
+  <testcase classname="domain.KweetTest" name="getUser" time="0.001"/>
+  <testcase classname="domain.KweetTest" name="getId" time="0.002"/>
+  <testcase classname="domain.KweetTest" name="getLiker" time="0"/>
+  <testcase classname="domain.KweetTest" name="getMessage" time="0"/>
 </testsuite>

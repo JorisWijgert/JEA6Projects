@@ -1,7 +1,5 @@
 package Service;
 
-import DAO.DAOManager;
-import DAO.KweetDAO;
 import DAO.RelationDAO;
 import DAO.UserDAO;
 import Domain.Relation;

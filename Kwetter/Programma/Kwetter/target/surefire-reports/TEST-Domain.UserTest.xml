@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="Domain.UserTest" time="0" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="domain.UserTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\tools\jdk1.8.0_111\jre\bin"/>
@@ -63,19 +63,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Domain.UserTest" name="getBio" time="0"/>
-  <testcase classname="Domain.UserTest" name="getWeb" time="0"/>
-  <testcase classname="Domain.UserTest" name="setPassword" time="0"/>
-  <testcase classname="Domain.UserTest" name="getPassword" time="0"/>
-  <testcase classname="Domain.UserTest" name="setBio" time="0"/>
-  <testcase classname="Domain.UserTest" name="setWeb" time="0"/>
-  <testcase classname="Domain.UserTest" name="setLocation" time="0"/>
-  <testcase classname="Domain.UserTest" name="getLocation" time="0"/>
-  <testcase classname="Domain.UserTest" name="getName" time="0"/>
-  <testcase classname="Domain.UserTest" name="getRole" time="0"/>
-  <testcase classname="Domain.UserTest" name="getId" time="0"/>
-  <testcase classname="Domain.UserTest" name="setPhoto" time="0"/>
-  <testcase classname="Domain.UserTest" name="getPhoto" time="0"/>
-  <testcase classname="Domain.UserTest" name="setName" time="0"/>
-  <testcase classname="Domain.UserTest" name="setRole" time="0"/>
+  <testcase classname="domain.UserTest" name="getBio" time="0"/>
+  <testcase classname="domain.UserTest" name="getWeb" time="0"/>
+  <testcase classname="domain.UserTest" name="setPassword" time="0"/>
+  <testcase classname="domain.UserTest" name="getPassword" time="0"/>
+  <testcase classname="domain.UserTest" name="setBio" time="0"/>
+  <testcase classname="domain.UserTest" name="setWeb" time="0"/>
+  <testcase classname="domain.UserTest" name="setLocation" time="0"/>
+  <testcase classname="domain.UserTest" name="getLocation" time="0"/>
+  <testcase classname="domain.UserTest" name="getName" time="0"/>
+  <testcase classname="domain.UserTest" name="getRole" time="0"/>
+  <testcase classname="domain.UserTest" name="getId" time="0"/>
+  <testcase classname="domain.UserTest" name="setPhoto" time="0"/>
+  <testcase classname="domain.UserTest" name="getPhoto" time="0"/>
+  <testcase classname="domain.UserTest" name="setName" time="0"/>
+  <testcase classname="domain.UserTest" name="setRole" time="0"/>
 </testsuite>

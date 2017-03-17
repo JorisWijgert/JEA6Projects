@@ -1,6 +1,5 @@
 package Service;
 
-import DAO.DAOManager;
 import DAO.KweetDAO;
 import DAO.UserDAO;
 import Domain.Group;
