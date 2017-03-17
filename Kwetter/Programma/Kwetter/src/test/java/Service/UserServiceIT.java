@@ -1,19 +1,16 @@
-package Service;
+package service;
 
-import DAO.DAOManager;
-import DAO.RelationDAO;
-import DAO.UserDAO;
-import Domain.Group;
-import Domain.Relation;
-import Domain.User;
+import dao.RelationDAO;
+import dao.UserDAO;
+import domain.Group;
+import domain.Relation;
+import domain.User;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.inject.Inject;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Joris on 9-3-2017.

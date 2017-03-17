@@ -1,6 +1,4 @@
-package Domain;
-
-import org.eclipse.persistence.annotations.PrimaryKey;
+package domain;
 
 import javax.persistence.*;
 

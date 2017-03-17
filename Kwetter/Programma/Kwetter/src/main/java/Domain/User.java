@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 import javax.persistence.*;
 import java.security.MessageDigest;

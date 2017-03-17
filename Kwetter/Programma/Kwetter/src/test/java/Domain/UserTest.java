@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 import org.junit.Assert;
 import org.junit.Before;

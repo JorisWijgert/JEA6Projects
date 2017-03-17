@@ -5,10 +5,10 @@
     <persistence-unit name="TestDB" transaction-type="RESOURCE_LOCAL">
         <!--<jta-data-source>examplesDB</jta-data-source>-->
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>Domain.User</class>
-        <class>Domain.Group</class>
-        <class>Domain.Kweet</class>
-        <class>Domain.Relation</class>
+        <class>domain.User</class>
+        <class>domain.Group</class>
+        <class>domain.Kweet</class>
+        <class>domain.Relation</class>
         <shared-cache-mode>NONE</shared-cache-mode>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

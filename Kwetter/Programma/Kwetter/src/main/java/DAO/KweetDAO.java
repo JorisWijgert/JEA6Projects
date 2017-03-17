@@ -1,8 +1,7 @@
-package DAO;
+package dao;
 
-import Domain.Kweet;
-import Domain.User;
-import com.sun.media.jfxmedia.logging.Logger;
+import domain.Kweet;
+import domain.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

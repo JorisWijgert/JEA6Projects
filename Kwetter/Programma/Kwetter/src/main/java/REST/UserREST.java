@@ -1,9 +1,9 @@
-package REST;
+package rest;
 
-import Domain.User;
-import JSONObjects.RelationJSON;
-import JSONObjects.UserJSON;
-import Service.UserService;
+import domain.User;
+import jsonobjects.RelationJSON;
+import jsonobjects.UserJSON;
+import service.UserService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

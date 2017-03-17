@@ -1,6 +1,6 @@
-package REST;
+package rest;
 
-import JSONObjects.KweetJSON;
+import jsonobjects.KweetJSON;
 
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
