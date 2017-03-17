@@ -1,7 +1,5 @@
 package Domain;
 
-import org.eclipse.persistence.annotations.PrimaryKey;
-
 import javax.persistence.*;
 
 /**
@@ -20,7 +18,7 @@ public class Relation {
     private User following;
 
     public Relation() {
-
+        //Empty for JPA
     }
 
     public Relation(User follower, User following) throws IllegalArgumentException {

@@ -7,6 +7,7 @@ import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.List;
 
 /**
@@ -38,7 +39,7 @@ public class KweetService {
      * @throws Exception            when the user already likes the kweet
      * @throws NullPointerException when the user or kweet doesn't exist
      */
-    public void likeKweet(int kweetId, int userId) throws Exception {
+    public void likeKweet(int kweetId, int userId) throws KeyAlreadyExistsException {
         Kweet kweet = kweetDAO.get(kweetId);
 
         User liker = userDAO.get(userId);
