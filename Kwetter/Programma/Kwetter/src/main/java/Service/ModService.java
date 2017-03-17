@@ -1,10 +1,11 @@
-package service;
+package Service;
 
-import dao.KweetDAO;
-import dao.UserDAO;
-import domain.Group;
-import domain.Kweet;
-import domain.User;
+import DAO.DAOManager;
+import DAO.KweetDAO;
+import DAO.UserDAO;
+import Domain.Group;
+import Domain.Kweet;
+import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

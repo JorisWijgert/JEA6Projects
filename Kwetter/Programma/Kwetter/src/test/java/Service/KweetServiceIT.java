@@ -1,16 +1,17 @@
-package service;
+package Service;
 
-import dao.KweetDAO;
-import dao.UserDAO;
-import domain.Group;
-import domain.Kweet;
-import domain.User;
+import DAO.KweetDAO;
+import DAO.UserDAO;
+import Domain.Group;
+import Domain.Kweet;
+import Domain.User;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 

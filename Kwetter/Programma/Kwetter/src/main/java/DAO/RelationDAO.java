@@ -1,12 +1,14 @@
-package dao;
+package DAO;
 
-import domain.Relation;
-import domain.User;
+import Domain.Relation;
+import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**

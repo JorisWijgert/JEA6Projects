@@ -1,4 +1,4 @@
-package jsonobjects;
+package JSONObjects;
 
 import javax.xml.bind.annotation.XmlElement;
 

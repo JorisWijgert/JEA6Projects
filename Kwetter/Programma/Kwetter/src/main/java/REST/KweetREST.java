@@ -1,11 +1,11 @@
-package rest;
+package REST;
 
-import domain.Kweet;
-import domain.User;
-import jsonobjects.KweetJSON;
-import jsonobjects.LikeJSON;
-import service.KweetService;
-import service.UserService;
+import Domain.Kweet;
+import Domain.User;
+import JSONObjects.KweetJSON;
+import JSONObjects.LikeJSON;
+import Service.KweetService;
+import Service.UserService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

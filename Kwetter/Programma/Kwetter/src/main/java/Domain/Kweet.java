@@ -1,4 +1,4 @@
-package domain;
+package Domain;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 import javax.persistence.*;

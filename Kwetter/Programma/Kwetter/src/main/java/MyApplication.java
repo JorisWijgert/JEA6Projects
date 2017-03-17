@@ -1,6 +1,6 @@
-import rest.KweetREST;
-import rest.ModREST;
-import rest.UserREST;
+import REST.KweetREST;
+import REST.ModREST;
+import REST.UserREST;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

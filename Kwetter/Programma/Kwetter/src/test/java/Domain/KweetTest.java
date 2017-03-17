@@ -1,4 +1,4 @@
-package domain;
+package Domain;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.Calendar;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by Joris on 3-3-2017.

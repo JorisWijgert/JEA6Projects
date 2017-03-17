@@ -1,9 +1,9 @@
-package rest;
+package REST;
 
-import domain.Kweet;
-import domain.User;
-import jsonobjects.RoleJSON;
-import service.ModService;
+import Domain.Kweet;
+import Domain.User;
+import JSONObjects.RoleJSON;
+import Service.ModService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

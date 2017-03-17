@@ -1,9 +1,11 @@
-package service;
+package Service;
 
-import dao.RelationDAO;
-import dao.UserDAO;
-import domain.Relation;
-import domain.User;
+import DAO.DAOManager;
+import DAO.KweetDAO;
+import DAO.RelationDAO;
+import DAO.UserDAO;
+import Domain.Relation;
+import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
