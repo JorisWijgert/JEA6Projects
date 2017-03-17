@@ -27,7 +27,7 @@ public class User {
     @Column(name = "location")
     private String location;
     @ManyToOne(targetEntity = Group.class, cascade = CascadeType.MERGE)
-    @JoinColumn(name="groupname", nullable = false)
+    @JoinColumn(name = "groupname", nullable = false)
     private Group group;
     @Column(name = "password")
     private String password;
@@ -112,14 +112,16 @@ public class User {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(data.getBytes());
             return bytesToHex(md.digest());
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             return null;
         }
 
     }
+
     public static String bytesToHex(byte[] bytes) {
         StringBuilder result = new StringBuilder();
-        for (byte byt : bytes) result.append(Integer.toString((byt & 0xff) + 0x100, 16).substring(1));
+        for (byte byt : bytes)
+            result.append(Integer.toString((byt & 0xff) + 0x100, 16).substring(1));
         return result.toString();
     }
 }

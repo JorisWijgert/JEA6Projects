@@ -48,21 +48,21 @@ public class UserREST {
     @POST
     @Consumes("application/json")
     @Path("follow")
-    public void follow(final RelationJSON input) throws Exception {
+    public void follow(final RelationJSON input) throws NullPointerException, IllegalArgumentException {
         userService.follow(input.followerId, input.followingId);
     }
 
     @GET
     @Produces("application/json")
     @Path("getfollowers")
-    public List<User> getFollowers(@QueryParam("user") int userId) throws Exception {
+    public List<User> getFollowers(@QueryParam("user") int userId) throws NullPointerException, IllegalArgumentException {
         return userService.getFollowers(userId);
     }
 
     @GET
     @Produces("application/json")
     @Path("getfollowing")
-    public List<User> getFollowing(@QueryParam("user") int userId) throws Exception {
+    public List<User> getFollowing(@QueryParam("user") int userId) throws NullPointerException, IllegalArgumentException {
         return userService.getFollowing(userId);
     }
 }

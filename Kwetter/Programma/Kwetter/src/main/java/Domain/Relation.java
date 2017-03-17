@@ -23,7 +23,7 @@ public class Relation {
 
     }
 
-    public Relation(User follower, User following) throws Exception {
+    public Relation(User follower, User following) throws IllegalArgumentException {
         if (follower.equals(following))
             throw new IllegalArgumentException("Follower was equal to following");
         this.follower = follower;

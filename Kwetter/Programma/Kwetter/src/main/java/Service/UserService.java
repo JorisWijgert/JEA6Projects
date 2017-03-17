@@ -94,7 +94,7 @@ public class UserService {
      * @param following the id of the user that gets followed
      * @throws Exception when the user follows itself, when a user can't be found or when the user already follows the user
      */
-    public void follow(int follower, int following) throws Exception {
+    public void follow(int follower, int following) throws NullPointerException, IllegalArgumentException {
         User followerUser = userDAO.get(follower);
         if (followerUser == null)
             throw new NullPointerException("Can't find the user that is the follower!");
