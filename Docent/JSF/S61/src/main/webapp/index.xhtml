@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        Welkomboodschap: #{coffeeBean.welcome}
+        <br /><h:form>
+            <p:commandButton value ="vul lijst" actionListener="#{coffeeBean.fillList()}" update="lijst"/>
+            <p:commandButton value ="clear" actionListener="#{coffeeBean.clearList()}" update="lijst"/>
+            <p:dataTable var="coffee" value="#{coffeeBean.coffeeList}" id="lijst">
+                <p:column headerText="Id">
+                    <h:outputText value="#{coffee.id}" />
+                </p:column>
+                <p:column headerText="Taste">
+                    <h:outputText value="#{coffee.taste}" />
+                </p:column>
+
+
+            </p:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
+
