@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.Calendar;
 
 import static org.junit.Assert.*;
@@ -81,7 +80,7 @@ public class KweetTest {
         Assert.assertEquals("Kweet1 didn't get another liker.", 3, kweet1.getLikers().size());
     }
 
-    @Test(expected = KeyAlreadyExistsException.class)
+    @Test(expected = Exception.class)
     public void addExistingLikerException() throws Exception {
         kweet1.addLiker(user1);
     }

@@ -1,5 +1,7 @@
 package Domain;
 
+import org.eclipse.persistence.annotations.PrimaryKey;
+
 import javax.persistence.*;
 
 /**
@@ -18,10 +20,10 @@ public class Relation {
     private User following;
 
     public Relation() {
-        //Empty for JPA
+
     }
 
-    public Relation(User follower, User following) throws IllegalArgumentException {
+    public Relation(User follower, User following) throws Exception {
         if (follower.equals(following))
             throw new IllegalArgumentException("Follower was equal to following");
         this.follower = follower;

@@ -1,5 +1,6 @@
 package Service;
 
+import DAO.DAOManager;
 import DAO.KweetDAO;
 import DAO.UserDAO;
 import Domain.Kweet;
@@ -10,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.inject.Inject;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by Joris on 9-3-2017.

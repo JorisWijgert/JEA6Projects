@@ -1,11 +1,8 @@
 package Domain;
 
-import javax.management.openmbean.KeyAlreadyExistsException;
 import javax.persistence.*;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Joris on 3-3-2017.
@@ -65,12 +62,12 @@ public class Kweet {
         return date;
     }
 
-    public Set<User> getLikers() {
-        return Collections.unmodifiableSet(likers);
+    public HashSet<User> getLikers() {
+        return likers;
     }
 
-    public void addLiker(User user) throws KeyAlreadyExistsException {
+    public void addLiker(User user) throws Exception {
         if (!likers.add(user))
-            throw new KeyAlreadyExistsException("The user already liked this kweet.");
+            throw new Exception("The user already liked this kweet.");
     }
 }

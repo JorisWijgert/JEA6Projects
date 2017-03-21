@@ -5,7 +5,6 @@ import Domain.User;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import javax.ejb.Stateless;
-import javax.management.openmbean.KeyAlreadyExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -26,7 +25,7 @@ public class KweetDAO {
         em.persist(kweet);
     }
 
-    public void like(Kweet kweet, User user) throws KeyAlreadyExistsException {
+    public void like(Kweet kweet, User user) throws Exception {
         kweet.addLiker(user);
         em.merge(kweet);
     }

@@ -1,5 +1,7 @@
 package Service;
 
+import DAO.DAOManager;
+import DAO.KweetDAO;
 import DAO.RelationDAO;
 import DAO.UserDAO;
 import Domain.Relation;
@@ -7,6 +9,7 @@ import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +18,7 @@ import java.util.List;
  * Created by Joris on 4-3-2017.
  */
 @Stateless
-public class UserService {
+public class UserService implements Serializable {
 
     @Inject
     UserDAO userDAO;
@@ -92,7 +95,7 @@ public class UserService {
      * @param following the id of the user that gets followed
      * @throws Exception when the user follows itself, when a user can't be found or when the user already follows the user
      */
-    public void follow(int follower, int following) throws NullPointerException, IllegalArgumentException {
+    public void follow(int follower, int following) throws Exception {
         User followerUser = userDAO.get(follower);
         if (followerUser == null)
             throw new NullPointerException("Can't find the user that is the follower!");

@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
-Test set: domain.GroupTest
+Test set: Domain.GroupTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+>>>>>>> 51c04db2f4fd4590706e21e716f98118c279baf0
