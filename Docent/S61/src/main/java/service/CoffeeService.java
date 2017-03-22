@@ -20,7 +20,7 @@ import util.CoffeeEvent;
  */
 @Stateless
 public class CoffeeService {
-    
+
     @Inject
     Event<CoffeeEvent> ev;
 
@@ -31,6 +31,10 @@ public class CoffeeService {
         CoffeeEvent coffeeEvent = new CoffeeEvent();
         ev.fire(coffeeEvent);
         return cd.allCoffees();
+    }
+
+    public void save(Coffee c) {
+        cd.save(c);
     }
 
 }

@@ -17,15 +17,16 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class CoffeeDAO {
-    
-    @PersistenceContext
+
+    @PersistenceContext(name = "coffeePU")
     EntityManager em;
-    
-    public List<Coffee> allCoffees(){
+
+    public List<Coffee> allCoffees() {
         return em.createNamedQuery("Coffee.all").getResultList();
     }
-    
-    public void save(Coffee c){
+
+    public void save(Coffee c) {
         em.persist(c);
+        em.flush();
     }
 }
