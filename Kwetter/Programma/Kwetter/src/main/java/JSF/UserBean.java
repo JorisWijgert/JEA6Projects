@@ -18,10 +18,19 @@ public class UserBean implements Serializable {
     @Inject
     private UserService userService;
 
+    private int userId;
     private String username;
     private String password;
 
     public UserBean() {
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -42,5 +51,9 @@ public class UserBean implements Serializable {
 
     public void createUser() throws NoSuchAlgorithmException {
         userService.createUser(new User(0, null, username, null, null, null, password));
+    }
+
+    public void updateUser() throws NoSuchAlgorithmException {
+        userService.updateUser(new User(userId, null, username, null, null, null, password));
     }
 }

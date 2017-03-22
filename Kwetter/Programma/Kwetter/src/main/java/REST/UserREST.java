@@ -26,14 +26,14 @@ public class UserREST {
     @Consumes("application/json")
     @Path("create")
     public void create(final UserJSON input) throws NoSuchAlgorithmException {
-        userService.createUser(new User(input.id, input.photo, input.username, input.bio, input.web, input.location, input.password));
+        userService.createUser(new User(0, input.photo, input.username, input.bio, input.web, input.location, input.password));
     }
 
     @PUT
     @Consumes("application/json")
     @Path("update")
     public void update(final UserJSON input) throws NoSuchAlgorithmException {
-        userService.updateUser(new User(input.id, input.photo, input.username, input.bio, input.web, input.location, input.password));
+        userService.updateUser(new User(0, input.photo, input.username, input.bio, input.web, input.location, input.password));
     }
 
     @GET
