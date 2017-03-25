@@ -10,13 +10,14 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.validation.constraints.Null;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Joris on 4-3-2017.
  */
 @Stateless
-public class KweetService {
+public class KweetService implements Serializable {
 
     @Inject
     KweetDAO kweetDAO;

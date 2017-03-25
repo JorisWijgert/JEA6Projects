@@ -9,6 +9,7 @@ import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  * Created by Joris on 4-3-2017.
  */
 @Stateless
-public class UserService {
+public class UserService implements Serializable {
 
     @Inject
     UserDAO userDAO;

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Profiel van #{userBean.chosenUser.name} | Kwetter</title></h:head>
+<h:body>
+    <div id="s0">
+        <img src="#{userBean.chosenUser.photo}" alt="#{userBean.chosenUser.name}"/>
+        <p>#{userBean.chosenUser.name}</p>
+    </div>
+    <div id="s1Tweets">
+        <h2>Tweets</h2>
+        <p:dataList value="#{kweetBean.getLatestKweets(userBean.chosenUser)}" var="kweet" type="definition">
+            <f:facet name="header">
+                Kweets
+            </f:facet>
+            #{kweet.message}
+            <f:facet name="description">
+                #{kweet.date}
+            </f:facet>
+        </p:dataList>
+    </div>
+    <div id="s2Details">
+        <h2>Details</h2>
+        <p>Name: #{userBean.chosenUser.name}</p>
+        <p>Location: #{userBean.chosenUser.location}</p>
+        <p>Web: #{userBean.chosenUser.web}</p>
+        <p>Bio: #{userBean.chosenUser.bio}</p>
+    </div>
+    <div id="s3Stats">
+        <h2>Statistieken</h2>
+    </div>
+    <div id="s4Following">
+        <h2>Volgend</h2>
+    </div>
+</h:body>
+
+</html>
