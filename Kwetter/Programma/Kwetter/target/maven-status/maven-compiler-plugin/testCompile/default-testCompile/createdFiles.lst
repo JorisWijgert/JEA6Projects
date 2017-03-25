@@ -1,0 +1,9 @@
+Service\KweetServiceIT.class
+Domain\GroupTest.class
+EmployeeTest.class
+Domain\KweetTest.class
+Service\ClearDB.class
+Service\UserServiceIT.class
+Domain\UserTest.class
+Domain\RelationTest.class
+Service\ModServiceIT.class
