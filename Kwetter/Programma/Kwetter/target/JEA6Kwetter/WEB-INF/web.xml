@@ -103,6 +103,13 @@
     </security-constraint>
 
     <!--<login-config>-->
+    <!--<auth-method>BASIC</auth-method>-->
+    <!--<realm-name>file</realm-name>-->
+    <!--</login-config>-->
+
+    <!--<login-config>-->
+    <!--<auth-method>FORM</auth-method>-->
+    <!--<realm-name>file</realm-name>-->
         <!--<auth-method>BASIC</auth-method>-->
         <!--<realm-name>file</realm-name>-->
     <!--</login-config>-->

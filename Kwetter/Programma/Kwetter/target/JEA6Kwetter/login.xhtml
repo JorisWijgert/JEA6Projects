@@ -7,6 +7,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Login | Kwetter</title>
+    <f:metadata>
+        <f:viewAction action="#{loginBean.onLoad}"></f:viewAction>
+    </f:metadata>
 </h:head>
 <h:body>
     <f:view>
@@ -14,11 +17,11 @@
             <h1>Login to access your account</h1>
             <h:form id="loginForm">
                 <h:outputLabel value="username"/>
-                <h:inputText value="#{userBean.username}"/>
+                <h:inputText value="#{loginBean.username}"/>
                 <br/>
                 <h:outputLabel value="password"/>
-                <h:inputSecret value="#{userBean.password}"/>
-                <h:commandButton value="Login" action="#{userBean.login(userBean.username, userBean.password)}"/>
+                <h:inputSecret value="#{loginBean.password}"/>
+                <h:commandButton value="Login" action="#{loginBean.login()}"/>
             </h:form>
         </div>
     </f:view>

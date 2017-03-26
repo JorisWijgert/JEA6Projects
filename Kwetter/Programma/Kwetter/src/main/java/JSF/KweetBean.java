@@ -17,14 +17,4 @@ import java.util.List;
 @Named("kweetBean")
 @RequestScoped
 public class KweetBean implements Serializable {
-    @Inject
-    KweetService kweetService;
-
-    public KweetBean(){
-    }
-
-    public List<Kweet> getLatestKweets(User chosenUser)
-    {
-        return kweetService.latestKweets(chosenUser.getId(), 10);
-    }
 }

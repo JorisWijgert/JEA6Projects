@@ -7,15 +7,19 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-<h:head><title>Profiel van #{userBean.chosenUser.name} | Kwetter</title></h:head>
+<h:head><title>Profiel van #{profileBean.chosenUser.name} | Kwetter</title>
+<f:metadata>
+    <f:viewAction action="#{profileBean.onLoad(loginBean.chosenUser)}"></f:viewAction>
+</f:metadata>
+</h:head>
 <h:body>
     <div id="s0">
-        <img src="#{userBean.chosenUser.photo}" alt="#{userBean.chosenUser.name}"/>
-        <p>#{userBean.chosenUser.name}</p>
+        <img src="#{profileBean.getChosenUserProfilePhoto()}" alt="#{profileBean.chosenUser.name}"/>
+        <p>#{profileBean.chosenUser.name}</p>
     </div>
     <div id="s1Tweets">
-        <h2>Tweets</h2>
-        <p:dataList value="#{kweetBean.getLatestKweets(userBean.chosenUser)}" var="kweet" type="definition">
+        <h2>Kweets</h2>
+        <p:dataList value="#{profileBean.latestKweets}" var="kweet" type="definition">
             <f:facet name="header">
                 Kweets
             </f:facet>
@@ -27,10 +31,11 @@
     </div>
     <div id="s2Details">
         <h2>Details</h2>
-        <p>Name: #{userBean.chosenUser.name}</p>
-        <p>Location: #{userBean.chosenUser.location}</p>
-        <p>Web: #{userBean.chosenUser.web}</p>
-        <p>Bio: #{userBean.chosenUser.bio}</p>
+
+        <p>Name: #{profileBean.chosenUser.name}</p>
+        <p>Location: #{profileBean.chosenUser.location}</p>
+        <p>Web: #{profileBean.chosenUser.web}</p>
+        <p>Bio: #{profileBean.chosenUser.bio}</p>
     </div>
     <div id="s3Stats">
         <h2>Statistieken</h2>
