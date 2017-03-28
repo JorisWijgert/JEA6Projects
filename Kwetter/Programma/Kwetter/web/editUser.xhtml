@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Edit profile | Kwetter</title>
+    <f:metadata>
+        <f:viewAction action="#{editBean.onLoad()}"></f:viewAction>
+    </f:metadata>
+</h:head>
+<h:body>
+    <h2>Registrate</h2>
+    <h:form>
+        Registrate user
+        <br/>
+        <h:inputText value="#{editBean.username}" a:placeholder="username" required="true"/>
+        <br/>
+        <h:inputSecret value="#{editBean.password}" a:placeholder="password" required="true"/>
+        <br/>
+        <h:inputText value="#{editBean.photo}" a:placeholder="web location of a photo"/>
+        <br/>
+        <h:inputTextarea value="#{editBean.bio}" a:placeholder="bio"/>
+        <br/>
+        <h:inputText value="#{editBean.web}" a:placeholder="location of your own website"/>
+        <br/>
+        <h:inputText value="#{editBean.location}" a:placeholder="physical location"/>
+        <br/>
+        <h:commandButton value="Update user" action="#{editBean.updateUser}"/>
+    </h:form>
+</h:body>
+
+</html>

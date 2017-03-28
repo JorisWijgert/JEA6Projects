@@ -25,7 +25,6 @@ public class LoginBean implements Serializable {
     private String username;
     private String password;
 
-    private User loggedInUser;
     private User chosenUser;
 
     private FacesContext context;
@@ -80,8 +79,9 @@ public class LoginBean implements Serializable {
         if (!userToLogin.getPassword().equals(foundUser.getPassword()))
             externalContext.redirect(externalContext.getRequestContextPath() + "/error.xhtml");
 
-        loggedInUser = foundUser;
-        setChosenUser(loggedInUser);
+        setChosenUser(foundUser);
+
+        externalContext.getSessionMap().put("user", foundUser);
         externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
     }
 }

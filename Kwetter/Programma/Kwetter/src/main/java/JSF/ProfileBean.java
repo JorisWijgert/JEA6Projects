@@ -34,10 +34,9 @@ public class ProfileBean implements Serializable {
 
     private FacesContext context;
     private ExternalContext externalContext;
-    private String username;
-    private String password;
 
     private User chosenUser;
+    private User loggedInUser;
 
     public ProfileBean() {
     }
@@ -48,46 +47,26 @@ public class ProfileBean implements Serializable {
         return chosenUser.getPhoto();
     }
 
-    public String onLoad(User chosenUser) throws IOException {
+    public void onLoad(User chosenUser) throws IOException {
         context = FacesContext.getCurrentInstance();
         externalContext = context.getExternalContext();
+
+        Object object = externalContext.getSessionMap().get("user");
+
+        if (object == null) {
+            externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
+            return;
+        }
+
+        loggedInUser = (User) object;
 
         this.chosenUser = chosenUser;
 
         latestKweets = kweetService.latestKweets(chosenUser.getId(), 10);
-        return null;
     }
 
     public List<Kweet> getLatestKweets() {
         return latestKweets;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public void setUser(String username) {
-        this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public User getChosenUser() {
@@ -98,11 +77,21 @@ public class ProfileBean implements Serializable {
         this.chosenUser = chosenUser;
     }
 
-    public void createUser() throws NoSuchAlgorithmException {
-        userService.createUser(new User(0, null, username, null, null, null, password));
+    public User getLoggedInUser() {
+        return loggedInUser;
     }
 
-    public void updateUser() throws NoSuchAlgorithmException {
-        userService.updateUser(new User(userId, null, username, null, null, null, password));
+    public void setLoggedInUser(User loggedInUser) {
+        this.loggedInUser = loggedInUser;
     }
+
+    public String getEditButtonText(){
+        if(loggedInUser.getId() == chosenUser.getId())
+            return "<a href='editUser.xhtml'>Edit Profile</a>";
+        return null;
+    }
+
+//    public void updateUser() throws NoSuchAlgorithmException, IOException {
+//        userService.updateUser(new User(userId, null, username, null, null, null, password));
+//    }
 }

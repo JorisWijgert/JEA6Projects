@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head><title>Registrate | Kwetter</title></h:head>
+<h:body>
+    <h2>Registrate</h2>
+    <h:form>
+        Registrate user
+        <br/>
+        <h:inputText value="#{registrateBean.username}" a:placeholder="username" required="true"/>
+        <br/>
+        <h:inputSecret value="#{registrateBean.password}" a:placeholder="password" required="true"/>
+        <br/>
+        <h:inputText value="#{registrateBean.photo}" a:placeholder="web location of a photo"/>
+        <br/>
+        <h:inputTextarea value="#{registrateBean.bio}" a:placeholder="bio"/>
+        <br/>
+        <h:inputText value="#{registrateBean.web}" a:placeholder="location of your own website"/>
+        <br/>
+        <h:inputText value="#{registrateBean.location}" a:placeholder="physical location"/>
+        <br/>
+        <h:commandButton value="Registrate user" action="#{registrateBean.createUser}"/>
+    </h:form>
+</h:body>
+
+</html>

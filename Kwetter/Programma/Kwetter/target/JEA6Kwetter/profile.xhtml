@@ -7,12 +7,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-<h:head><title>Profiel van #{profileBean.chosenUser.name} | Kwetter</title>
-<f:metadata>
-    <f:viewAction action="#{profileBean.onLoad(loginBean.chosenUser)}"></f:viewAction>
-</f:metadata>
+<h:head>
+    <title>Profile of #{profileBean.chosenUser.name} | Kwetter</title>
+    <f:metadata>
+        <f:viewAction action="#{profileBean.onLoad(loginBean.chosenUser)}"></f:viewAction>
+    </f:metadata>
 </h:head>
 <h:body>
+    <p>Logged in as #{profileBean.loggedInUser.name}</p>
+
     <div id="s0">
         <img src="#{profileBean.getChosenUserProfilePhoto()}" alt="#{profileBean.chosenUser.name}"/>
         <p>#{profileBean.chosenUser.name}</p>
@@ -34,14 +37,15 @@
 
         <p>Name: #{profileBean.chosenUser.name}</p>
         <p>Location: #{profileBean.chosenUser.location}</p>
-        <p>Web: #{profileBean.chosenUser.web}</p>
+        <p>Web: <a href="#{profileBean.chosenUser.web}">#{profileBean.chosenUser.web}</a></p>
         <p>Bio: #{profileBean.chosenUser.bio}</p>
+        <h:outputText value=" #{profileBean.getEditButtonText()}" escape="false"></h:outputText>
     </div>
     <div id="s3Stats">
-        <h2>Statistieken</h2>
+        <h2>Stats</h2>
     </div>
     <div id="s4Following">
-        <h2>Volgend</h2>
+        <h2>Following</h2>
     </div>
 </h:body>
 
