@@ -28,7 +28,9 @@
             </f:facet>
             #{kweet.message}
             <f:facet name="description">
-                #{kweet.date}
+                <h:outputText value="#{kweet.date.time}" >
+                    <f:convertDateTime pattern="EEEE dd MMMM yyyy HH:mm:ss" />
+                </h:outputText>
             </f:facet>
         </p:dataList>
     </div>

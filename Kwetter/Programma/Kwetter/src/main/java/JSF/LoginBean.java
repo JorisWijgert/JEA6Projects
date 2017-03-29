@@ -67,18 +67,25 @@ public class LoginBean implements Serializable {
         User userToLogin = new User(0, null, username, null, null, null, password);
         User foundUser = userService.getUser(username);
 
-        if (userToLogin.getPassword() == null)
+        if (userToLogin.getPassword() == null) {
             externalContext.redirect(externalContext.getRequestContextPath() + "/error.xhtml");
+            return;
+        }
 
-        if (foundUser == null)
+        if (foundUser == null) {
             externalContext.redirect(externalContext.getRequestContextPath() + "/error.xhtml");
+            return;
+        }
 
-        if (foundUser.getPassword() == null)
+        if (foundUser.getPassword() == null) {
             externalContext.redirect(externalContext.getRequestContextPath() + "/error.xhtml");
+            return;
+        }
 
-        if (!userToLogin.getPassword().equals(foundUser.getPassword()))
+        if (!userToLogin.getPassword().equals(foundUser.getPassword())) {
             externalContext.redirect(externalContext.getRequestContextPath() + "/error.xhtml");
-
+            return;
+        }
         setChosenUser(foundUser);
 
         externalContext.getSessionMap().put("user", foundUser);

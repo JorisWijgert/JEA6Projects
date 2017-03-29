@@ -3,104 +3,109 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <security-constraint>
-        <display-name>UpdateUser</display-name>
-        <web-resource-collection>
-            <web-resource-name>User</web-resource-name>
-            <url-pattern>/api/user/update</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>User</role-name>
-            <role-name>Moderator</role-name>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <context-param>
+        <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
-    <security-constraint>
-        <display-name>FollowUser</display-name>
-        <web-resource-collection>
-            <web-resource-name>User</web-resource-name>
-            <url-pattern>/api/user/follow</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>User</role-name>
-            <role-name>Moderator</role-name>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>UpdateUser</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>User</web-resource-name>-->
+            <!--<url-pattern>/api/user/update</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>User</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+            <!--<role-name>Admin</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>CreateKweet</display-name>
-        <web-resource-collection>
-            <web-resource-name>Kweet</web-resource-name>
-            <url-pattern>/api/kweet/create</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>User</role-name>
-            <role-name>Moderator</role-name>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>FollowUser</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>User</web-resource-name>-->
+            <!--<url-pattern>/api/user/follow</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>User</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+            <!--<role-name>Admin</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>LikeKweet</display-name>
-        <web-resource-collection>
-            <web-resource-name>Kweet</web-resource-name>
-            <url-pattern>/api/kweet/like</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>User</role-name>
-            <role-name>Moderator</role-name>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>CreateKweet</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Kweet</web-resource-name>-->
+            <!--<url-pattern>/api/kweet/create</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>User</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+            <!--<role-name>Admin</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>ChangeRole</display-name>
-        <web-resource-collection>
-            <web-resource-name>Mod</web-resource-name>
-            <url-pattern>/api/mod/changerole</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>LikeKweet</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Kweet</web-resource-name>-->
+            <!--<url-pattern>/api/kweet/like</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>User</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+            <!--<role-name>Admin</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>AllUsers</display-name>
-        <web-resource-collection>
-            <web-resource-name>Mod</web-resource-name>
-            <url-pattern>/api/mod/users</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Admin</role-name>
-            <role-name>Moderator</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>ChangeRole</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Mod</web-resource-name>-->
+            <!--<url-pattern>/api/mod/changerole</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>Admin</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>AllKweets</display-name>
-        <web-resource-collection>
-            <web-resource-name>Mod</web-resource-name>
-            <url-pattern>/api/mod/kweets</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Admin</role-name>
-            <role-name>Moderator</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>AllUsers</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Mod</web-resource-name>-->
+            <!--<url-pattern>/api/mod/users</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>Admin</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <security-constraint>
-        <display-name>DeleteKweet</display-name>
-        <web-resource-collection>
-            <web-resource-name>Mod</web-resource-name>
-            <url-pattern>/api/mod/deletekweet</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Admin</role-name>
-            <role-name>Moderator</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<display-name>AllKweets</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Mod</web-resource-name>-->
+            <!--<url-pattern>/api/mod/kweets</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>Admin</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--<security-constraint>-->
+        <!--<display-name>DeleteKweet</display-name>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Mod</web-resource-name>-->
+            <!--<url-pattern>/api/mod/deletekweet</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>Admin</role-name>-->
+            <!--<role-name>Moderator</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
     <!--<login-config>-->
     <!--<auth-method>BASIC</auth-method>-->
@@ -119,25 +124,25 @@
         <!--<realm-name>file</realm-name>-->
     <!--</login-config>-->
 
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>file</realm-name>
-        <form-login-config>
-            <form-login-page>/profile.xhtml</form-login-page>
-            <form-error-page>/error.xhtml</form-error-page>
-        </form-login-config>
-    </login-config>
+    <!--<login-config>-->
+        <!--<auth-method>FORM</auth-method>-->
+        <!--<realm-name>file</realm-name>-->
+        <!--<form-login-config>-->
+            <!--<form-login-page>/profile.xhtml</form-login-page>-->
+            <!--<form-error-page>/error.xhtml</form-error-page>-->
+        <!--</form-login-config>-->
+    <!--</login-config>-->
 
-    <security-role>
-        <description>All users that are authenticated</description>
-        <role-name>User</role-name>
-    </security-role>
-    <security-role>
-        <description>All users that are authenticated and are moderator</description>
-        <role-name>Moderator</role-name>
-    </security-role>
-    <security-role>
-        <description>All users that are authenticated and are moderator and admin</description>
-        <role-name>Admin</role-name>
-    </security-role>
+    <!--<security-role>-->
+        <!--<description>All users that are authenticated</description>-->
+        <!--<role-name>User</role-name>-->
+    <!--</security-role>-->
+    <!--<security-role>-->
+        <!--<description>All users that are authenticated and are moderator</description>-->
+        <!--<role-name>Moderator</role-name>-->
+    <!--</security-role>-->
+    <!--<security-role>-->
+        <!--<description>All users that are authenticated and are moderator and admin</description>-->
+        <!--<role-name>Admin</role-name>-->
+    <!--</security-role>-->
 </web-app>
