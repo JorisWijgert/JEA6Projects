@@ -9,13 +9,14 @@ import Domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Joris on 4-3-2017.
  */
 @Stateless
-public class ModService {
+public class ModService implements Serializable {
 
     @Inject
     KweetDAO kweetDAO;

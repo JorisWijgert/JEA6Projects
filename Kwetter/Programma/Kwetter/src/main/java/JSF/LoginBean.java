@@ -88,7 +88,18 @@ public class LoginBean implements Serializable {
         }
         setChosenUser(foundUser);
 
-        externalContext.getSessionMap().put("user", foundUser);
+        externalContext.getSessionMap().put("loggedInUser", foundUser);
+        externalContext.getSessionMap().put("chosenUser", foundUser);
         externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
+    }
+
+    public void logout() throws IOException {
+        context = FacesContext.getCurrentInstance();
+        externalContext = context.getExternalContext();
+
+        externalContext.getSessionMap().remove("loggedInUser");
+        externalContext.getSessionMap().remove("chosenUser");
+
+        externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
     }
 }

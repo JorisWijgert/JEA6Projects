@@ -25,6 +25,8 @@ public class EditBean implements Serializable {
     private FacesContext context;
     private ExternalContext externalContext;
 
+    private User loggedInUser;
+
     private int id;
     private String username;
     private String password;
@@ -85,14 +87,14 @@ public class EditBean implements Serializable {
         context = FacesContext.getCurrentInstance();
         externalContext = context.getExternalContext();
 
-        Object object = externalContext.getSessionMap().get("user");
+        Object object = externalContext.getSessionMap().get("loggedInUser");
 
         if (object == null) {
             externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
             return;
         }
 
-        User loggedInUser = (User) object;
+        loggedInUser = (User) object;
         this.id = loggedInUser.getId();
         this.username = loggedInUser.getName();
         this.photo = loggedInUser.getPhoto();
@@ -106,6 +108,10 @@ public class EditBean implements Serializable {
         externalContext = context.getExternalContext();
 
         userService.updateUser(new User(id, photo, username, bio, web, location, password));
+
+        externalContext.getSessionMap().put("loggedInUser", loggedInUser);
+        externalContext.getSessionMap().put("chosenUser", loggedInUser);
+
         externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
     }
 }
