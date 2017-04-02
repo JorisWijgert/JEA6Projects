@@ -63,7 +63,7 @@ public class ProfileBean implements Serializable {
 
         Object chosenUser = externalContext.getSessionMap().get("chosenUser");
 
-        if (loggedInUser == null) {
+        if (chosenUser == null) {
             externalContext.getSessionMap().put("chosenUser", loggedInUser);
             externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
             return;
@@ -149,5 +149,12 @@ public class ProfileBean implements Serializable {
 
         externalContext.getSessionMap().put("chosenUser", userForProfile);
         externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
+    }
+
+    public void openMainPage() throws IOException {
+        context = FacesContext.getCurrentInstance();
+        externalContext = context.getExternalContext();
+
+        externalContext.redirect(externalContext.getRequestContextPath() + "/mainPage.xhtml");
     }
 }

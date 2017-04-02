@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Kwetter | Welcome</title>
+    <f:metadata>
+        <f:viewAction action="#{mainPageBean.onLoad()}"/>
+    </f:metadata>
+</h:head>
+<h:body>
+    <h:form>
+        <p>Logged in as <h:commandLink action="#{profileBean.ownProfile()}" value="#{mainPageBean.loggedInUser.name}"/>.
+            <h:commandLink action="#{loginBean.logout()}" value="Log out"/>.
+        </p>
+        <div id="searchKweets">
+            <h2>Search</h2>
+            <h:form id="searchForm">
+                <h:inputText value="#{mainPageBean.searchQuery}" a:placeholder="Search"/>
+                <h:commandButton value="Search" action="#{mainPageBean.searchKweets()}"/>
+            </h:form>
+        </div>
+
+        <div id="newKweet">
+            <h2>What's happening?</h2>
+            <h:form id="kweetForm">
+                <h:inputText value="#{mainPageBean.kweetText}" a:placeholder="What's happening?"/>
+                <h:commandButton value="Post" action="#{mainPageBean.postKweet()}"/>
+            </h:form>
+        </div>
+
+        <div id="timeline">
+            <h2>Timeline</h2>
+            <p:dataList value="#{mainPageBean.timeLine}" var="kweet" type="definition">
+                <f:facet name="header">
+                    Timeline
+                </f:facet>
+                #{kweet.message}
+                <f:facet name="description">
+                    <h:outputText value="#{kweet.date.time}">
+                        <f:convertDateTime pattern="EEEE dd MMMM yyyy HH:mm:ss"/>
+                    </h:outputText>
+                </f:facet>
+            </p:dataList>
+        </div>
+
+        <div id="following">
+            <h2>Following</h2>
+            <p:dataGrid var="followingUser" value="#{mainPageBean.followingUsers}" columns="4" layout="grid" rows="12" paginator="true" id="followingUsers" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="6,12,16">
+                <f:facet name="header">Following users</f:facet>
+                <p:panel header="#{followingUser.id}" style="text-align:center">
+                    <h:panelGrid columns="1" style="width:100%">
+                        <h:commandLink action="#{profileBean.openProfile(followingUser)}" value="#{followingUser.name}"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:dataGrid>
+        </div>
+
+        <div id="followers">
+            <h2>Followers</h2>
+            <p:dataGrid var="followerUser" value="#{mainPageBean.followerUsers}" columns="4" layout="grid" rows="12" paginator="true" id="followerUsers" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="6,12,16">
+                <f:facet name="header">Follower users</f:facet>
+                <p:panel header="#{followerUser.id}" style="text-align:center">
+                    <h:panelGrid columns="1" style="width:100%">
+                        <h:commandLink action="#{profileBean.openProfile(followerUser)}" value="#{followerUser.name}"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:dataGrid>
+        </div>
+    </h:form>
+</h:body>
+</html>

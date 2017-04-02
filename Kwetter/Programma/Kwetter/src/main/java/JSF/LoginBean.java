@@ -90,7 +90,7 @@ public class LoginBean implements Serializable {
 
         externalContext.getSessionMap().put("loggedInUser", foundUser);
         externalContext.getSessionMap().put("chosenUser", foundUser);
-        externalContext.redirect(externalContext.getRequestContextPath() + "/profile.xhtml");
+        externalContext.redirect(externalContext.getRequestContextPath() + "/mainPage.xhtml");
     }
 
     public void logout() throws IOException {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Results for "#{mainPageBean.searchQuery}" | Welcome</title>
+    <f:metadata>
+        <f:viewAction action="#{mainPageBean.onLoad()}"/>
+    </f:metadata>
+</h:head>
+<h:body>
+    <h:form>
+        <p>Logged in as <h:commandLink action="#{profileBean.ownProfile()}" value="#{mainPageBean.loggedInUser.name}"/>.
+            <h:commandLink action="#{loginBean.logout()}" value="Log out"/>.
+            <h:commandLink action="#{profileBean.openMainPage()}" value="Main page."/>
+        </p>
+
+        <div id="results">
+            <h2>Results</h2>
+            <p:dataList value="#{mainPageBean.searchResults}" var="kweet" type="definition">
+                <f:facet name="header">
+                    Results for "#{mainPageBean.searchQuery}"
+                </f:facet>
+                #{kweet.message}
+                <f:facet name="description">
+                    <h:outputText value="#{kweet.date.time}">
+                        <f:convertDateTime pattern="EEEE dd MMMM yyyy HH:mm:ss"/>
+                    </h:outputText>
+                </f:facet>
+            </p:dataList>
+        </div>
+    </h:form>
+</h:body>
+</html>
