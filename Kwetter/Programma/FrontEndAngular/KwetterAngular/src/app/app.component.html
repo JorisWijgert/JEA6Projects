@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<!--<div class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <a href="../" class="navbar-brand">Kwetter</a>
@@ -10,13 +10,13 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li>
+        <!--<li>
           <a routerLink="about">About</a>
         </li>
         <li>
           <a routerLink="services">Services</a>
-        </li>
-      </ul>
+        </li>-->
+      <!--</ul>
 
     </div>
   </div>
@@ -24,4 +24,24 @@
 
 <div class="container">
   <router-outlet></router-outlet>
-  </div>
+  </div>-->
+
+  <!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <alert></alert>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<!-- credits -->
+<div class="text-center">
+    <p>
+        <a href="http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial" target="_top">Angular 2 User Registration and Login Example &amp; Tutorial</a>
+    </p>
+    <p>
+        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+</div>
