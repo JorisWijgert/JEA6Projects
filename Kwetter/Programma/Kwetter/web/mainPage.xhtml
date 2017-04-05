@@ -18,22 +18,23 @@
         <p>Logged in as <h:commandLink action="#{profileBean.ownProfile()}" value="#{mainPageBean.loggedInUser.name}"/>.
             <h:commandLink action="#{loginBean.logout()}" value="Log out"/>.
         </p>
-        <div id="searchKweets">
-            <h2>Search</h2>
-            <h:form id="searchForm">
-                <h:inputText value="#{mainPageBean.searchQuery}" a:placeholder="Search"/>
-                <h:commandButton value="Search" action="#{mainPageBean.searchKweets()}"/>
-            </h:form>
-        </div>
+    </h:form>
+    <div id="searchKweets">
+        <h2>Search</h2>
+        <h:form id="searchForm">
+            <h:inputText value="#{mainPageBean.searchQuery}" a:placeholder="Search"/>
+            <h:commandButton value="Search" action="#{mainPageBean.searchKweets()}"/>
+        </h:form>
+    </div>
 
-        <div id="newKweet">
-            <h2>What's happening?</h2>
-            <h:form id="kweetForm">
-                <h:inputText value="#{mainPageBean.kweetText}" a:placeholder="What's happening?"/>
-                <h:commandButton value="Post" action="#{mainPageBean.postKweet()}"/>
-            </h:form>
-        </div>
-
+    <div id="newKweet">
+        <h2>What's happening?</h2>
+        <h:form id="kweetForm">
+            <h:inputText value="#{mainPageBean.kweetText}" a:placeholder="What's happening?"/>
+            <h:commandButton value="Post" action="#{mainPageBean.postKweet()}"/>
+        </h:form>
+    </div>
+    <h:form>
         <div id="timeline">
             <h2>Timeline</h2>
             <p:dataList value="#{mainPageBean.timeLine}" var="kweet" type="definition">
@@ -51,12 +52,15 @@
 
         <div id="following">
             <h2>Following</h2>
-            <p:dataGrid var="followingUser" value="#{mainPageBean.followingUsers}" columns="4" layout="grid" rows="12" paginator="true" id="followingUsers" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+            <p:dataGrid var="followingUser" value="#{mainPageBean.followingUsers}" columns="4" layout="grid" rows="12"
+                        paginator="true" id="followingUsers"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         rowsPerPageTemplate="6,12,16">
                 <f:facet name="header">Following users</f:facet>
                 <p:panel header="#{followingUser.id}" style="text-align:center">
                     <h:panelGrid columns="1" style="width:100%">
-                        <h:commandLink action="#{profileBean.openProfile(followingUser)}" value="#{followingUser.name}"/>
+                        <h:commandLink action="#{profileBean.openProfile(followingUser)}"
+                                       value="#{followingUser.name}"/>
                     </h:panelGrid>
                 </p:panel>
             </p:dataGrid>
@@ -64,7 +68,9 @@
 
         <div id="followers">
             <h2>Followers</h2>
-            <p:dataGrid var="followerUser" value="#{mainPageBean.followerUsers}" columns="4" layout="grid" rows="12" paginator="true" id="followerUsers" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+            <p:dataGrid var="followerUser" value="#{mainPageBean.followerUsers}" columns="4" layout="grid" rows="12"
+                        paginator="true" id="followerUsers"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         rowsPerPageTemplate="6,12,16">
                 <f:facet name="header">Follower users</f:facet>
                 <p:panel header="#{followerUser.id}" style="text-align:center">

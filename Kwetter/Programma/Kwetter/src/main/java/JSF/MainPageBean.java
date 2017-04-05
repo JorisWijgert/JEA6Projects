@@ -125,7 +125,6 @@ public class MainPageBean implements Serializable{
         externalContext = context.getExternalContext();
 
         searchResults = kweetService.searchKweet(searchQuery);
-        searchQuery = "";
         externalContext.redirect(externalContext.getApplicationContextPath() + "/searchresults.xhtml");
     }
 }
