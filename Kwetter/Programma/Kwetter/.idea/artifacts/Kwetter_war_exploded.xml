@@ -36,6 +36,7 @@
           <element id="library" level="project" name="Maven: com.thetransactioncompany:cors-filter:1.3.2" />
           <element id="library" level="project" name="Maven: com.thetransactioncompany:java-property-utils:1.6" />
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: org.ebaysf.web:cors-filter:1.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

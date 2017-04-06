@@ -8,6 +8,7 @@ import Service.UserService;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -21,6 +22,16 @@ public class UserREST {
     @Inject
     UserService userService;
 
+    @POST
+    @Consumes("application/json")
+    @Path("login")
+    public Response login(final UserJSON input) throws NoSuchAlgorithmException {
+        User responseUser = userService.login(input.username, input.password);
+        if (responseUser == null)
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+
+        return Response.ok(responseUser).build();
+    }
 
     @POST
     @Consumes("application/json")

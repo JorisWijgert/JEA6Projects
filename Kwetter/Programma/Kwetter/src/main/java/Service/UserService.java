@@ -10,6 +10,7 @@ import Domain.User;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -148,5 +149,19 @@ public class UserService implements Serializable {
             following.add(relation.getFollowing());
 
         return Collections.unmodifiableList(following);
+    }
+
+    public User login(String username, String password) throws NoSuchAlgorithmException {
+        User loginUser = new User(0, null, username, null, null, null, password);
+
+        User foundUser = getUser(username);
+
+        if (foundUser == null)
+            return null;
+
+        if (!foundUser.getPassword().equals( loginUser.getPassword()))
+            return null;
+
+        return foundUser;
     }
 }
