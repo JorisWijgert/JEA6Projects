@@ -10,7 +10,23 @@ export class AuthenticationService {
     login(username: string, password: string) {
 
         let url = 'http://localhost:8080/JEA6Kwetter/api/user/login';
-        let body = JSON.stringify({ username: username, password: password });
+        let body = JSON.stringify({ name: username, password: password });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(url, body, options)
+            .map((response: Response) => {
+                let user = response.json();
+                if (user != null) {
+                    let returnvalue = user;
+                    localStorage.setItem('currentUser', JSON.stringify(returnvalue));
+                }
+            });
+    }
+
+    register(username: string, password: string) {
+        let url = 'http://localhost:8080/JEA6Kwetter/api/user/create';
+        let body = JSON.stringify({ name: username, password: password });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

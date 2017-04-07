@@ -15,10 +15,6 @@ export class UserService {
     //     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     // }
 
-    create(user: User) {
-        return this.http.post('/api/users', user).map((response: Response) => response.json());
-    }
-
     // update(user: User) {
     //     return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
     // }

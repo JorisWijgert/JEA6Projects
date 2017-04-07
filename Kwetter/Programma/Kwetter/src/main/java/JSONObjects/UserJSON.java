@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class UserJSON {
     @XmlElement public int id;
-    @XmlElement public String username;
+    @XmlElement public String name;
     @XmlElement public String password;
     @XmlElement public String photo;
     @XmlElement public String bio;

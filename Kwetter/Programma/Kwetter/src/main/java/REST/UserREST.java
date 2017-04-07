@@ -26,7 +26,7 @@ public class UserREST {
     @Consumes("application/json")
     @Path("login")
     public Response login(final UserJSON input) throws NoSuchAlgorithmException {
-        User responseUser = userService.login(input.username, input.password);
+        User responseUser = userService.login(input.name, input.password);
         if (responseUser == null)
             return Response.status(Response.Status.UNAUTHORIZED).build();
 
@@ -36,15 +36,20 @@ public class UserREST {
     @POST
     @Consumes("application/json")
     @Path("create")
-    public void create(final UserJSON input) throws NoSuchAlgorithmException {
-        userService.createUser(new User(input.id, input.photo, input.username, input.bio, input.web, input.location, input.password));
+    public Response create(final UserJSON input) throws NoSuchAlgorithmException {
+        try {
+            userService.createUser(new User(input.id, input.photo, input.name, input.bio, input.web, input.location, input.password));
+            return Response.ok(userService.getUser(input.name)).build();
+        } catch (Exception ex) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PUT
     @Consumes("application/json")
     @Path("update")
     public void update(final UserJSON input) throws NoSuchAlgorithmException {
-        userService.updateUser(new User(input.id, input.photo, input.username, input.bio, input.web, input.location, input.password));
+        userService.updateUser(new User(input.id, input.photo, input.name, input.bio, input.web, input.location, input.password));
     }
 
     @GET
