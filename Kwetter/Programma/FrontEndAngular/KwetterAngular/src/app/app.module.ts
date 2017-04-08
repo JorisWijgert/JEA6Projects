@@ -12,11 +12,11 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, KweetService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
-import { NiksComponent } from './niks/niks.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     imports: [
@@ -31,13 +31,14 @@ import { NiksComponent } from './niks/niks.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        NiksComponent
+        ProfileComponent
     ],
     providers: [
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService
+        UserService,
+        KweetService
     ],
     bootstrap: [AppComponent]
 })

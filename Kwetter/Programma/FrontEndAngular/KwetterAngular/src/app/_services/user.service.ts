@@ -11,6 +11,14 @@ export class UserService {
         return this.http.get('http://localhost:8080/JEA6Kwetter/api/mod/users').map((response: Response) => response.json());
     }
 
+    getFollowers(userId: number) {
+        return this.http.get('http://localhost:8080/JEA6Kwetter/api/user/getfollowers?user=' + userId).map((response: Response) => response.json());
+    }
+
+        getFollowing(userId: number) {
+        return this.http.get('http://localhost:8080/JEA6Kwetter/api/user/getfollowing?user=' + userId).map((response: Response) => response.json());
+    }
+
     // getById(id: number) {
     //     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     // }

@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -29,11 +30,17 @@ public class KweetREST {
     @Consumes("application/json")
     @Path("create")
     @Interceptors(Interceptor.class)
-    public void create(final KweetJSON input) {
-        User kweetUser = userService.getUser(input.userId);
-        if(kweetUser == null)
-            throw new NullPointerException("User not found.");
-        kweetService.createKweet(new Kweet(input.id, input.message, kweetUser));
+    public Response create(final KweetJSON input) {
+        try {
+            User kweetUser = userService.getUser(input.userId);
+            if (kweetUser == null)
+                throw new NullPointerException("User not found.");
+            Kweet kweet = new Kweet(input.id, input.message, kweetUser);
+            kweetService.createKweet(kweet);
+            return Response.ok(kweet).build();
+        } catch (Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @POST
