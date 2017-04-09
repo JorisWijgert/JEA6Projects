@@ -1,3 +1,29 @@
-<p>
-  profile works!
-</p>
+<div class="row">
+  <div class="bs-component">
+    <h2>Profile of {{chosenUser.name}}</h2>
+    <div class="list-group">
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading">Profile</h4>
+        <p class="list-group-item-text">Name: {{chosenUser.name}}</p>
+        <p class="list-group-item-text">Location: {{chosenUser.location}}</p>
+        <p class="list-group-item-text">Web: {{chosenUser.web}}</p>
+        <p class="list-group-item-text">Bio: {{chosenUser.bio}}</p>
+        <a *ngIf="chosenUser.id == currentUser.id" [routerLink]="['/edit']">Edit profile</a>
+      </div>
+    </div>
+    <h2>Latest</h2>
+    <div class="list-group" *ngFor="let kweet of latest">
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading"><em>{{kweet.user.name}}</em></h4>
+        <p class="list-group-item-text">{{kweet.message}} <br />{{kweet.date | date: 'EEEE dd MMMM yyyy'}} om {{kweet.date | date:'HH:mm:ss'}} uur</p>
+      </div>
+    </div>
+    <h2>Following</h2>
+    <div class="list-group" *ngFor="let following of following">
+      <div class="list-group-item">
+        <a href="profile" (click)="viewUser(following.id)" class="btn btn-link"><img src="{{following.photo}}" alt="photo" width="40px" /> {{following.name}}</a>
+      </div>
+    </div>
+  </div>
+
+</div>

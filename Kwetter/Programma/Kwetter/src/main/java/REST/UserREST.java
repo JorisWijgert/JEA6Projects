@@ -48,8 +48,13 @@ public class UserREST {
     @PUT
     @Consumes("application/json")
     @Path("update")
-    public void update(final UserJSON input) throws NoSuchAlgorithmException {
-        userService.updateUser(new User(input.id, input.photo, input.name, input.bio, input.web, input.location, input.password));
+    public Response update(final UserJSON input) throws NoSuchAlgorithmException {
+        try {
+            userService.updateUser(new User(input.id, input.photo, input.name, input.bio, input.web, input.location, input.password));
+            return Response.ok(userService.getUser(input.name)).build();
+        } catch (Exception ex) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GET

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User, Kweet } from '../_models/index';
 import { UserService, KweetService, AlertService } from '../_services/index';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -10,13 +11,14 @@ import { UserService, KweetService, AlertService } from '../_services/index';
 
 export class HomeComponent implements OnInit {
     model: any = {};
-    currentUser: User;
+    currentUser: User = new User();
     timeline: Kweet[] = [];
     followers: User[] = [];
     following: User[] = [];
     loading = false;
 
-    constructor(private userService: UserService, private kweetService: KweetService, private alertService: AlertService) {
+    constructor(private userService: UserService, private kweetService: KweetService, private alertService: AlertService, private route: ActivatedRoute,
+        private router: Router) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -34,11 +36,11 @@ export class HomeComponent implements OnInit {
         this.userService.getFollowers(this.currentUser.id).subscribe(followers => { this.followers = followers })
     }
 
-        private loadFollowing() {
+    private loadFollowing() {
         this.userService.getFollowing(this.currentUser.id).subscribe(following => { this.following = following })
     }
 
-    private addKweet() {
+    addKweet() {
         this.kweetService.postKweet(this.model.kweet, this.currentUser.id).subscribe(
             data => {
                 this.alertService.success('Post successful', true);
@@ -49,5 +51,13 @@ export class HomeComponent implements OnInit {
                 this.alertService.error(error);
                 this.loading = false;
             });
+    }
+
+    viewUser(userId: number) {
+        this.currentUser.chosenId = userId;
+
+        localStorage.removeItem('currentUser');
+        localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+        this.router.navigate(["profile"]);
     }
 }

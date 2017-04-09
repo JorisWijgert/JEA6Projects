@@ -1,14 +1,15 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LOCALE_ID } from '@angular/core';
 
 // used to create fake backend
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
-import { AppComponent }  from './app.component';
-import { routing }        from './app.routing';
+import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
@@ -17,10 +18,12 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { ProfileComponent } from './profile/profile.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         FormsModule,
         HttpModule,
         routing
@@ -31,9 +34,11 @@ import { ProfileComponent } from './profile/profile.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        ProfileComponent
+        ProfileComponent,
+        EditComponent
     ],
     providers: [
+        { provide: LOCALE_ID, useValue: 'nl-NL' },
         AuthGuard,
         AlertService,
         AuthenticationService,

@@ -15,20 +15,20 @@
         <div class="list-group" *ngFor="let kweet of timeline">
             <div class="list-group-item">
                 <h4 class="list-group-item-heading"><em>{{kweet.user.name}}</em></h4>
-                <p class="list-group-item-text">{{kweet.message}} <br />{{kweet.date | date: 'dd-MM-yyyy HH:mm:ss'}}</p>
+                <p class="list-group-item-text">{{kweet.message}} <br />{{kweet.date | date: 'EEEE dd MMMM yyyy'}} om {{kweet.date | date:'HH:mm:ss'}} uur</p>
             </div>
         </div>
         <h2>Followers</h2>
         <div class="list-group" *ngFor="let follower of followers">
             <div class="list-group-item">
-                <a href="" class="list-group-item-text"><img src="{{follower.photo}}" alt="photo" width="40px" /> {{follower.name}}</a>
+                <a  (click)="viewUser(follower.id)" class="btn btn-link"><img src="{{follower.photo}}" alt="photo" width="40px" /> {{follower.name}}</a>
             </div>
         </div>
 
         <h2>Following</h2>
         <div class="list-group" *ngFor="let following of following">
             <div class="list-group-item">
-                <a href="" class="list-group-item-text"><img src="{{following.photo}}" alt="photo" width="40px" /> {{following.name}}</a>
+                <a (click)="viewUser(following.id)" class="btn btn-link"><img src="{{following.photo}}" alt="photo" width="40px" /> {{following.name}}</a>
             </div>
         </div>
     </div>
