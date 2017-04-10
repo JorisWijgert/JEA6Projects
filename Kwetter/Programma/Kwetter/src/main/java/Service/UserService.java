@@ -61,8 +61,10 @@ public class UserService implements Serializable {
                 throw new IllegalArgumentException("Username already exists!");
         }
 
-        if (!userToUpdate.getGroup().getGroupName().equals(user.getGroup().getGroupName()))
-            throw new IllegalArgumentException("There was an attempt to change the group name!");
+        userToUpdate.keepPassword(user.getPassword());
+
+//        if (!userToUpdate.getGroup().getGroupName().equals(user.getGroup().getGroupName()))
+//            throw new IllegalArgumentException("There was an attempt to change the group name!");
 
         userDAO.update(user);
     }

@@ -109,6 +109,10 @@ public class User {
         this.password = toSha256(password);
     }
 
+    public void keepPassword(String password){
+        this.password = password;
+    }
+
     public static String toSha256(String data) throws NoSuchAlgorithmException {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
