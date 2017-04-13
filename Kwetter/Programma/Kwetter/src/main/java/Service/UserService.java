@@ -26,6 +26,7 @@ public class UserService implements Serializable {
 
     @Inject
     RelationDAO relationDAO;
+
     /**
      * Creates a user of Kwetter in the system.
      *
@@ -60,8 +61,7 @@ public class UserService implements Serializable {
             if (userDAO.get(user.getName()) != null)
                 throw new IllegalArgumentException("Username already exists!");
         }
-
-        userToUpdate.keepPassword(user.getPassword());
+        user.keepPassword(userToUpdate.getPassword());
 
 //        if (!userToUpdate.getGroup().getGroupName().equals(user.getGroup().getGroupName()))
 //            throw new IllegalArgumentException("There was an attempt to change the group name!");
@@ -107,7 +107,7 @@ public class UserService implements Serializable {
         if (followingUser == null)
             throw new NullPointerException("Can't find the user that is the following!");
 
-        for( Relation relation: relationDAO.getFollowing(followerUser))
+        for (Relation relation : relationDAO.getFollowing(followerUser))
             if (relation.getFollowing().getId() == followingUser.getId())
                 throw new IllegalArgumentException("Follower already follows the following.");
 
@@ -161,7 +161,7 @@ public class UserService implements Serializable {
         if (foundUser == null)
             return null;
 
-        if (!foundUser.getPassword().equals( loginUser.getPassword()))
+        if (!foundUser.getPassword().equals(loginUser.getPassword()))
             return null;
 
         return foundUser;
