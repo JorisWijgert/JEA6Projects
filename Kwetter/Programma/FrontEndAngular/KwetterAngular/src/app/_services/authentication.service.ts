@@ -9,7 +9,7 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
 
-        let url = 'http://localhost:8080/JEA6Kwetter/api/user/login';
+        let url = 'http://localhost:8080/JEA6Kwetter/api/users/login';
         let body = JSON.stringify({ name: username, password: password });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -25,7 +25,7 @@ export class AuthenticationService {
     }
 
     register(username: string, password: string) {
-        let url = 'http://localhost:8080/JEA6Kwetter/api/user/create';
+        let url = 'http://localhost:8080/JEA6Kwetter/api/users';
         let body = JSON.stringify({ name: username, password: password });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

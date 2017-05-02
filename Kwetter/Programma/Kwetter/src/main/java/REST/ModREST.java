@@ -4,10 +4,15 @@ import Domain.Kweet;
 import Domain.User;
 import JSONObjects.RoleJSON;
 import Service.ModService;
+import Service.UserService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -19,11 +24,20 @@ public class ModREST {
     @Inject
     ModService modService;
 
-    @POST
+    @Inject
+    UserService userService;
+
+    @Context
+    UriInfo uriInfo;
+
+    @PUT
     @Consumes("application/json")
     @Path("changerole")
-    public void create(final RoleJSON input) {
+    public Response create(final RoleJSON input) {
         modService.changeRole(input.userId, input.role);
+        User updatedUser = userService.getUser(input.userId);
+        URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(updatedUser.getId())).build();
+        return Response.ok(updatedUser).location(uri).build();
     }
 
     @GET
@@ -42,7 +56,8 @@ public class ModREST {
 
     @DELETE
     @Path("deletekweet")
-    public void deleteKweet(@QueryParam("kweetId") int kweetId){
+    public Response deleteKweet(@QueryParam("kweetId") int kweetId){
         modService.deleteKweet(kweetId);
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 }
