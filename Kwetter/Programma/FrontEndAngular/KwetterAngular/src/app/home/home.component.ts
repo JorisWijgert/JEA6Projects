@@ -4,6 +4,8 @@ import { User, Kweet } from '../_models/index';
 import { UserService, KweetService, AlertService } from '../_services/index';
 import { Router, ActivatedRoute } from "@angular/router";
 
+import { $WebSocket } from 'angular2-websocket/angular2-websocket';
+
 @Component({
     moduleId: module.id,
     templateUrl: 'home.component.html'
@@ -16,10 +18,27 @@ export class HomeComponent implements OnInit {
     followers: User[] = [];
     following: User[] = [];
     loading = false;
+    socket: $WebSocket;
 
-    constructor(private userService: UserService, private kweetService: KweetService, private alertService: AlertService, private route: ActivatedRoute,
-        private router: Router) {
+    constructor(
+        private userService: UserService,
+        private kweetService: KweetService,
+        private alertService: AlertService,
+        private route: ActivatedRoute, private router: Router) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.socket = new $WebSocket('ws://localhost:8080/JEA6Kwetter/websocket/kweet');
+        this.socket.send4Direct(this.currentUser.name, true);
+
+        this.socket.onMessage(
+            (msg: MessageEvent) => {
+                console.log("onMessage ", msg.data);
+                let k: Kweet = JSON.parse(msg.data);
+                if (k != null) {
+                    this.timeline.splice(0, 0, k);
+                }
+            },
+            { autoApply: false }
+        );
     }
 
     ngOnInit() {

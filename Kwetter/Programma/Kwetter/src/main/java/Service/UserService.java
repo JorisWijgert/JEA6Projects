@@ -166,4 +166,8 @@ public class UserService implements Serializable {
 
         return foundUser;
     }
+
+    public void setSessionId(User user, String id) {
+
+    }
 }

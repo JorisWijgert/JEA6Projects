@@ -30,6 +30,7 @@ public class UserREST {
 
     @POST
     @Consumes("application/json")
+    @Produces("application/json")
     @Path("login")
     public Response login(final UserJSON input) throws NoSuchAlgorithmException {
         User responseUser = userService.login(input.name, input.password);
@@ -76,7 +77,7 @@ public class UserREST {
 
     @GET
     @Produces("application/json")
-    @Path("/username/{username}")
+    @Path("username/{username}")
     public User getUserByName(@PathParam("username") String username) {
         return userService.getUser(username);
     }

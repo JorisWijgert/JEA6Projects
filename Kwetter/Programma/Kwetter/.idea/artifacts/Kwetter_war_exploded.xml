@@ -37,6 +37,37 @@
           <element id="library" level="project" name="Maven: com.thetransactioncompany:java-property-utils:1.6" />
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
           <element id="library" level="project" name="Maven: org.ebaysf.web:cors-filter:1.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-rar:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-spring:5.12.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.10" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-broker:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-client:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-pool:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-jms-pool:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-ra:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-kahadb-store:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.xbean:xbean-spring:3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-amqp:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.qpid:proton-j:0.9.1" />
+          <element id="library" level="project" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-mqtt:5.12.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq.protobuf:activemq-protobuf:1.1" />
+          <element id="library" level="project" name="Maven: org.fusesource.mqtt-client:mqtt-client:1.10" />
+          <element id="library" level="project" name="Maven: org.fusesource.hawtdispatch:hawtdispatch-transport:1.21" />
+          <element id="library" level="project" name="Maven: org.fusesource.hawtdispatch:hawtdispatch:1.21" />
+          <element id="library" level="project" name="Maven: commons-net:commons-net:3.3" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.10" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

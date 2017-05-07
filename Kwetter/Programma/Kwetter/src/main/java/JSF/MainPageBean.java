@@ -115,7 +115,7 @@ public class MainPageBean implements Serializable{
     }
 
     public void postKweet() {
-        kweetService.createKweet(new Kweet(0, kweetText, loggedInUser));
+        kweetService.createKweet(new Kweet(0, kweetText, loggedInUser), null);
         kweetText = "";
         timeLine = kweetService.getTimeline(this.loggedInUser.getId());
     }

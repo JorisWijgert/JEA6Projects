@@ -2,9 +2,11 @@ package Service;
 
 import DAO.DAOManager;
 import DAO.KweetDAO;
+import DAO.RelationDAO;
 import DAO.UserDAO;
 import Domain.Kweet;
 import Domain.User;
+import Socket.WebSocket;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
@@ -30,8 +32,9 @@ public class KweetService implements Serializable {
      *
      * @param kweet to be created.
      */
-    public void createKweet(Kweet kweet) {
+    public void createKweet(Kweet kweet, List<User> followers) {
         kweetDAO.create(kweet);
+        WebSocket.sendKweet(kweet, followers);
     }
 
     /**

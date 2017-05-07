@@ -41,9 +41,10 @@ public class KweetREST {
             if (kweetUser == null)
                 throw new NullPointerException("User not found.");
             Kweet kweet = new Kweet(input.id, input.message, kweetUser);
-            kweetService.createKweet(kweet);
+            List<User> followers = userService.getFollowers(kweetUser.getId());
+            kweetService.createKweet(kweet, followers);
             URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(kweet.getId())).build();
-            return Response.created(uri).entity(kweet).build();
+            return Response.ok().entity(kweet).build();
         } catch (Exception ex){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }

@@ -93,7 +93,7 @@ public class KweetServiceIT {
     @Test
     public void createKweet() throws Exception {
         Kweet kweet2 = new Kweet(2, "Hey all!", user1);
-        kweetService.createKweet(kweet2);
+        kweetService.createKweet(kweet2, null);
         Mockito.verify(kweetDAO, Mockito.times(1)).create(kweet2);
     }
 
