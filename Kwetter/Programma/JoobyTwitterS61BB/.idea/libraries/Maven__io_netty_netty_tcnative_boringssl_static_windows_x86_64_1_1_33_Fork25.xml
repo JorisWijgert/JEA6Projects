@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.netty:netty-tcnative-boringssl-static:windows-x86_64:1.1.33.Fork25">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/1.1.33.Fork25/netty-tcnative-boringssl-static-1.1.33.Fork25-windows-x86_64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/1.1.33.Fork25/netty-tcnative-boringssl-static-1.1.33.Fork25-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/1.1.33.Fork25/netty-tcnative-boringssl-static-1.1.33.Fork25-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
