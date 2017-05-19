@@ -1,6 +1,7 @@
-package nl.kabisa.battle.jooby;
+package twitter.jooby;
 
 import Domain.MessageJson;
+import Domain.SubscribeJson;
 import Domain.User;
 import Domain.UserJson;
 import Service.UserService;
@@ -20,6 +21,14 @@ public class Application extends Jooby {
         get("/messages/:username", req -> {
             return gson.toJson(userService.getMessages(req.param("username").value()));
         });
+
+        get("/messages/subscribed/:username", req -> {
+            return gson.toJson(userService.getMessagesFromSubscriptions(req.param("username").value()));
+        });
+
+        get("/users", () -> {
+           return gson.toJson(userService.getUsers());
+        });
     }
 
     {
@@ -38,6 +47,12 @@ public class Application extends Jooby {
         post("/messages", request -> {
             MessageJson messageJson = gson.fromJson(request.body().value(), MessageJson.class);
             userService.addMessage(messageJson.getMessage(), messageJson.getUsername());
+            return "Done";
+        });
+
+        post("/subscribe", request -> {
+            SubscribeJson subscribeJson = gson.fromJson(request.body().value(), SubscribeJson.class);
+            userService.subscribe(subscribeJson.getUsername(), subscribeJson.getSubscription());
             return "Done";
         });
     }

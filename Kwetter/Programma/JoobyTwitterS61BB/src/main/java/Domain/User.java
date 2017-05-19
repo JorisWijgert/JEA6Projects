@@ -1,16 +1,30 @@
 package Domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Joris on 15-5-2017.
  */
+@Entity
+@Table(name = "twitteruser")
+@NamedQueries({@NamedQuery(name = "user.all", query = "SELECT u FROM User u"),
+        @NamedQuery(name = "user.getByName", query = "SELECT u FROM User u WHERE u.username = :username")})
 public class User {
+    @Id
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @OneToMany
     private List<User> subscriptions;
+    @ElementCollection
+    @CollectionTable(name ="message")
     private List<String> messages;
+
+    public User() {
+    }
 
     public User(String username, String password) {
         this.username = username;

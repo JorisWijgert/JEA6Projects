@@ -1,5 +1,6 @@
 package Service;
 
+import DAO.UserDAO;
 import Domain.User;
 
 import java.util.ArrayList;
@@ -9,18 +10,19 @@ import java.util.List;
  * Created by Joris on 15-5-2017.
  */
 public class UserService {
-    private List<User> users;
+
+    private UserDAO userDAO;
 
     public UserService() {
-        this.users = new ArrayList<>();
+        userDAO = new UserDAO();
     }
 
     private User getUser(String username) {
-        for (User user : users) {
-            if (user.getUsername().equals(username))
-                return user;
-        }
-        return null;
+        return userDAO.getUser(username);
+    }
+
+    public List<User> getUsers(){
+        return userDAO.getUsers();
     }
 
     public void addMessage(String message, String username) {
@@ -32,12 +34,13 @@ public class UserService {
             throw new IllegalArgumentException("Message is wrong.");
 
         user.addMessage(message);
+        userDAO.updateUser(user);
     }
 
     public List<String> getAllMessages() {
         List<String> messages = new ArrayList<>();
 
-        for (User user : users)
+        for (User user : userDAO.getUsers())
             messages.addAll(user.getMessages());
 
         return messages;
@@ -45,7 +48,7 @@ public class UserService {
 
     public List<String> getMessages(String username){
         User user = getUser(username);
-        if (user != null)
+        if (user == null)
             throw new NullPointerException("Can't find user: " + username);
 
         return user.getMessages();
@@ -53,7 +56,7 @@ public class UserService {
 
     public List<String> getMessagesFromSubscriptions(String username) {
         User user = getUser(username);
-        if (user != null)
+        if (user == null)
             throw new NullPointerException("Can't find user: " + username);
 
         List<String> messages = new ArrayList<>();
@@ -65,7 +68,7 @@ public class UserService {
     }
 
     public User login(String username, String password) {
-        for (User user : users) {
+        for (User user : userDAO.getUsers()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password))
                 return user;
         }
@@ -74,7 +77,18 @@ public class UserService {
 
     public User createUser(String username, String password) {
         User user = new User(username, password);
-        users.add(user);
+        userDAO.createUser(user);
         return user;
+    }
+
+    public void subscribe(String userName, String subscriptionName) {
+        User user = userDAO.getUser(userName);
+        User subscription = userDAO.getUser(subscriptionName);
+
+        if (user == null || subscription == null)
+            throw new NullPointerException("One of the users doesn't exist!");
+
+        user.addSubscription(subscription);
+        userDAO.updateUser(user);
     }
 }

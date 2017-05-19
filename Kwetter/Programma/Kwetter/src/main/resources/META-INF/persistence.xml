@@ -2,20 +2,20 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-    <persistence-unit name="EmployeeUnit" transaction-type="JTA">
-        <jta-data-source>examplesDB</jta-data-source>
-        <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <shared-cache-mode>NONE</shared-cache-mode>
-        <properties>
-            <!--<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>-->
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://mssql.fhict.local"/>-->
-            <!--<property name="javax.persistence.jdbc.user" value="dbi329146"/>-->
-            <!--<property name="javax.persistence.jdbc.password" value="hoihoi123"/>-->
-            <!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
-            <!--<property name="eclipselink.logging.logger" value="DefaultLogger"/>-->
-            <!--<property name="eclipselink.logging.level" value="FINE"/>-->
-            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
-        </properties>
-    </persistence-unit>
+<persistence-unit name="EmployeeUnit" transaction-type="JTA">
+    <jta-data-source>examplesDB</jta-data-source>
+    <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <properties>
+        <!--<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>-->
+        <!--<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://mssql.fhict.local"/>-->
+        <!--<property name="javax.persistence.jdbc.user" value="dbi329146"/>-->
+        <!--<property name="javax.persistence.jdbc.password" value="hoihoi123"/>-->
+        <!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
+        <!--<property name="eclipselink.logging.logger" value="DefaultLogger"/>-->
+        <!--<property name="eclipselink.logging.level" value="FINE"/>-->
+        <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+    </properties>
+</persistence-unit>
 </persistence>
