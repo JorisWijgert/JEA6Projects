@@ -1,5 +1,7 @@
 package Domain;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,9 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
-    @OneToMany
-    private List<User> subscriptions;
+    @ElementCollection
+    @CollectionTable(name ="subscription")
+    private List<String> subscriptions;
     @ElementCollection
     @CollectionTable(name ="message")
     private List<String> messages;
@@ -49,15 +52,15 @@ public class User {
         this.password = password;
     }
 
-    public List<User> getSubscriptions() {
+    public List<String> getSubscriptions() {
         return subscriptions;
     }
 
-    public void setSubscriptions(List<User> subscriptions) {
+    public void setSubscriptions(List<String> subscriptions) {
         this.subscriptions = subscriptions;
     }
 
-    public void addSubscription(User subscription) {
+    public void addSubscription(String subscription) {
         this.subscriptions.add(subscription);
     }
 

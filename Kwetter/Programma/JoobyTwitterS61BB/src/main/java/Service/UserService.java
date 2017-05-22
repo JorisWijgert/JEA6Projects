@@ -61,9 +61,10 @@ public class UserService {
 
         List<String> messages = new ArrayList<>();
 
-        for (User innerUser : user.getSubscriptions())
+        for (String innerUsername : user.getSubscriptions()) {
+            User innerUser = getUser(innerUsername);
             messages.addAll(innerUser.getMessages());
-
+        }
         return messages;
     }
 
@@ -88,7 +89,7 @@ public class UserService {
         if (user == null || subscription == null)
             throw new NullPointerException("One of the users doesn't exist!");
 
-        user.addSubscription(subscription);
+        user.addSubscription(subscription.getUsername());
         userDAO.updateUser(user);
     }
 }
